@@ -1,8 +1,7 @@
-# game/pathfinding.py
 import heapq
 
 def heuristic(a, b):
-    return abs(a.x - b.x) + abs(a.y - b.y)
+    return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
 class PriorityQueue:
     def __init__(self):

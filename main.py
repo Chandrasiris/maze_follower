@@ -9,8 +9,8 @@ def main():
     pygame.display.set_caption("Dynamic Maze Generation with Enhanced Features")
 
     maze = Maze(screen)
-    maze.generate(0, 0)
-    maze.visualize()
+    maze.generate(0, 0)  # Generate the maze
+    maze.visualize()  # Initially visualize the maze
 
     # Setup the event timers
     dynamic_update_event = pygame.USEREVENT + 1
@@ -23,6 +23,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_p:  # If 'p' key is pressed
+                    maze.find_path()  # Find and display the path
             elif event.type == dynamic_update_event:
                 maze.update_obstacles()
                 maze.visualize()
